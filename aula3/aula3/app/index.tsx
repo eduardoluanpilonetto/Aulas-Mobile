@@ -7,7 +7,20 @@ export default function Index() {
   const [idade, setIdade] = useState("");
 
   const salvarDados = () => {
-    Alert.alert("Sucesso", "Dados salvos com sucesso");
+
+    if(nome.trim() == ''){
+      Alert.alert("Error", "Digite o nome");
+      return;
+    }
+    if(email.trim() == ''){
+      Alert.alert("Error", "Digite o email");
+      return;
+    }
+    if(parseInt(idade ?? 0) < 0 || parseInt(idade ?? 0) > 99){
+      Alert.alert("Error", "Digite uma idade valida");
+      return;
+    }
+    Alert.alert("Sucesso", "Dados Salvos com sucesso");
   };
 
   return (
